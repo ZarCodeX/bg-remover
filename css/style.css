@@ -1,0 +1,255 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Root Variables Section Start */
+:root {
+  --dark: #00251e; /* Dark background color */
+  --light: #00fff3; /* Light accent color */
+}
+/* Root Variables Section End */
+
+/* Global Styles Section Start */
+* {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding/border in element dimensions */
+  font-family: 'Poppins', sans-serif; /* Set default font */
+  transition: all 0.4s ease; /* Smooth transitions for animations */
+}
+/* Global Styles Section End */
+
+/* Body Styling Section Start */
+body {
+  background-color: var(--dark); /* Dark background */
+  position: absolute; /* Positioning context */
+  inset: 0; /* Cover the entire viewport */
+  display: flex; /* Center content vertically and horizontally */
+  place-content: center; /* Align items in the center */
+  align-items: center; /* Align items vertically */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: auto; /* Allow vertical scrolling */
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add padding around content */
+  color: var(--light); /* Text color */
+}
+/* Body Styling Section End */
+
+/* Gradient Background Animation Section Start */
+@keyframes rotate {
+  0% { transform: rotate(0deg); } /* Start rotation */
+  100% { transform: rotate(360deg); } /* End rotation */
+}
+
+.gradient {
+  --size: 750px; /* Size of the gradient */
+  --speed: 50s; /* Speed of the animation */
+  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8); /* Easing function */
+  width: var(--size); /* Width of the gradient */
+  height: var(--size); /* Height of the gradient */
+  filter: blur(calc(var(--size) / 5)); /* Blur effect */
+  background-image: linear-gradient(hsl(182, 100%, 26%), hsla(174, 100%, 50%, 0.527)); /* Gradient colors */
+  animation: rotate var(--speed) var(--easing) alternate infinite; /* Rotate animation */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Rounded corners */
+  position: fixed; /* Fixed position */
+  z-index: -1; /* Behind other elements */
+}
+/* Gradient Background Animation Section End */
+
+/* Responsive Gradient Section Start */
+@media (max-width: 720px) {
+  .gradient {
+    --size: 500px; /* Smaller size for smaller screens */
+  }
+}
+/* Responsive Gradient Section End */
+
+/* Layout Styling Section Start */
+.main {
+  width: 100%; /* Full width */
+  max-width: 800px; /* Maximum width */
+  z-index: 2; /* Above the gradient */
+  text-align: center; /* Center text */
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+  padding: 30px; /* Padding inside the container */
+  border-radius: 15px; /* Rounded corners */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 0 20px rgba(0, 255, 243, 0.2); /* Subtle glow */
+  margin: 20px auto; /* Center the container */
+}
+/* Layout Styling Section End */
+
+/* Typography Section Start */
+h1, h2 {
+  color: var(--light); /* Header text color */
+}
+
+.p {
+  margin-bottom: 20px; /* Space below paragraph */
+  font-size: 16px; /* Font size */
+  color: #b4fffa; /* Paragraph text color */
+}
+/* Typography Section End */
+
+/* Footer Styling Section Start */
+.footer p {
+  font-size: 14px; /* Font size */
+  color: #6fffea; /* Footer text color */
+}
+/* Footer Styling Section End */
+
+/* Connection Status Indicator Section Start */
+.connection-status {
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* Distance from bottom */
+  right: 20px; /* Distance from right */
+  padding: 10px 20px; /* Padding inside the box */
+  background: #ff4444; /* Red background */
+  color: white; /* White text */
+  border-radius: 5px; /* Rounded corners */
+  display: none; /* Hidden by default */
+  animation: slideIn 0.5s ease-out; /* Slide-in animation */
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); } /* Slide in from the right */
+  to { transform: translateX(0); } /* Final position */
+}
+/* Connection Status Indicator Section End */
+
+/* Upload Button Styling Section Start */
+.input-div {
+  position: relative; /* Positioning context */
+  width: 100px; /* Width */
+  height: 100px; /* Height */
+  margin: 0 auto 20px; /* Margin */
+  border-radius: 50%; /* Circular shape */
+  border: 2px solid var(--light); /* Border */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden; /* Hide overflow */
+  box-shadow: 0px 0px 100px var(--light), inset 0px 0px 10px var(--light), 0px 0px 5px white; /* Glow effect */
+  animation: flicker 2s linear infinite; /* Flickering animation */
+}
+
+.input-div .icon {
+  color: var(--light); /* Icon color */
+  font-size: 2rem; /* Icon size */
+  cursor: pointer; /* Pointer cursor */
+  animation: iconflicker 2s linear infinite; /* Flickering animation */
+}
+
+.input-div .input {
+  position: absolute; /* Absolute positioning */
+  opacity: 0; /* Invisible */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  cursor: pointer !important; /* Pointer cursor */
+}
+/* Upload Button Styling Section End */
+
+/* Flickering Animations Section Start */
+@keyframes flicker {
+  0%, 10%, 30%, 100% {
+    border: 2px solid var(--light); /* Visible border */
+    box-shadow: 0 0 100px var(--light), inset 0 0 10px var(--light), 0 0 5px white; /* Glow */
+  }
+  5%, 25% {
+    border: none; /* No border */
+    box-shadow: none; /* No glow */
+  }
+}
+
+@keyframes iconflicker {
+  0%, 10%, 30%, 100% { opacity: 1; } /* Fully visible */
+  5%, 25% { opacity: 0.2; } /* Partially transparent */
+}
+/* Flickering Animations Section End */
+
+/* Result Section Styling Section Start */
+.result {
+  margin-top: 20px; /* Space above */
+}
+
+#resultImage {
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width */
+  margin: 0 auto 20px; /* Center and add space below */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px var(--light); /* Glow effect */
+}
+
+.buttons {
+  display: flex; /* Flexbox layout */
+  gap: 10px; /* Space between buttons */
+  justify-content: center; /* Center horizontally */
+  flex-wrap: wrap; /* Wrap buttons if needed */
+}
+
+.buttons button {
+  padding: 10px 20px; /* Padding inside buttons */
+  background-color: var(--light); /* Background color */
+  color: var(--dark); /* Text color */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  font-weight: 600; /* Bold text */
+  cursor: pointer; /* Pointer cursor */
+  box-shadow: 0 0 10px rgba(0, 255, 243, 0.5); /* Glow effect */
+}
+
+.buttons button:hover {
+  background-color: #00e1d8; /* Hover background color */
+}
+/* Result Section Styling Section End */
+
+/* Loader Styling Section Start */
+.spinner {
+  width: 3em; /* Width */
+  height: 3em; /* Height */
+  cursor: not-allowed; /* Not allowed cursor */
+  border-radius: 50%; /* Circular shape */
+  border: 2px solid #444; /* Border */
+  box-shadow: -10px -10px 10px #48cbff, 
+              0px -10px 10px 0px #00fff2, 
+              10px -10px 10px #005b6b, 
+              10px 0 10px #0bffae, 
+              10px 10px 10px 0px #00927a, 
+              0 10px 10px 0px #00814b, 
+              -10px 10px 10px 0px #004435; /* Multi-colored glow */
+  animation: rot55 0.7s linear infinite; /* Rotation animation */
+  margin: 20px auto; /* Center and add space */
+}
+
+.spinnerin {
+  border: 2px solid #444; /* Inner border */
+  width: 1.5em; /* Width */
+  height: 1.5em; /* Height */
+  border-radius: 50%; /* Circular shape */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Perfect centering */
+}
+
+/* Change Selection Color */
+::selection {
+  background-color: #00ffea; /* Custom selection background color */
+  color: #ffffff; /* Text color during selection */
+}
+
+/* For Mozilla browsers  [Change Selection Color] (Firefox) */
+::-moz-selection {
+  background-color: #00ffea; /* Custom selection background color */
+  color: #ffffff; /* Text color during selection */
+}
+
+@keyframes rot55 {
+  to {
+    transform: rotate(360deg); /* Full rotation */
+  }
+}
+/* Loader Styling Section End */
