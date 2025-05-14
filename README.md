@@ -6,7 +6,6 @@ A simple, lightweight tool to remove image backgrounds using HTML, CSS, and Java
 ---
 
 ## 🚀 Features
-- **Drag-and-Drop Interface**: Upload your image seamlessly.
 - **Real-Time Preview**: See the background removal in action as you upload.
 - **Download Option**: Save your edited image directly to your device.
 - **Responsive Design**: Works flawlessly on all devices.
